@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// Indie Studio
-// File description:
-// Source file of the Core class
-//
+/*
+** EPITECH PROJECT, 2019
+** OOP_indie_studio_2018
+** File description:
+** Core
+*/
 
 #include <iostream>
 #include "../inc/Core.hpp"

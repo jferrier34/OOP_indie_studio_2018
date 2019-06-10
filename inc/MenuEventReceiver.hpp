@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// OOP_indie_studio_2018
-// File description:
-// MenuEventReceiver.hpp
-//
+/*
+** EPITECH PROJECT, 2019
+** OOP_indie_studio_2018
+** File description:
+** MenuEventReceiver
+*/
 
 #ifndef MENU_EVENT_RECEIVER_HPP_
 #define MENU_EVENT_RECEIVER_HPP_

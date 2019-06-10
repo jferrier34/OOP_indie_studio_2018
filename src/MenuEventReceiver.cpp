@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// Indie Studio
-// File description:
-// Source file of the Event Receiver class
-//
+/*
+** EPITECH PROJECT, 2019
+** OOP_indie_studio_2018
+** File description:
+** MenuEventReceiver
+*/
 
 #include <iostream>
 #include "../inc/MenuEventReceiver.hpp"

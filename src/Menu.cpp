@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2018
-// cpp_indie_studio
-// File description:
-// Menu.hpp
-//
+/*
+** EPITECH PROJECT, 2019
+** OOP_indie_studio_2018
+** File description:
+** Menu
+*/
 
 #include <iostream>
 #include "../inc/Menu.hpp"
