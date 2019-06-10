@@ -12,13 +12,13 @@
 void	Game::initMap()
 {
 	_map.resize(20, std::vector<char>(20, 1));
-        getWay();
-        corner();
+	getWay();
+	corner();
 	_text = new LText;
 	_text->setClass(_data);
 	_text->loadTextures();
 	_gameEventRcv = new GameEventReceiver;
-        _gameEventRcv->setClass(_data);
+	_gameEventRcv->setClass(_data);
 	_exploMesh = _text->getFire();
 	_exploText = _text->getFireText();
 }
@@ -28,94 +28,93 @@ GameEventReceiver	*Game::getEventRcv()
 	return _gameEventRcv;
 }
 
-void    Game::corner()
+void	Game::corner()
 {
-        _map[2][1] = GROUND;
-        _map[1][1] = GROUND;
+	_map[2][1] = GROUND;
+	_map[1][1] = GROUND;
 	_map[1][2] = GROUND;
 
-        _map[1][HEIGHT - 2] = GROUND;
-        _map[2][HEIGHT - 2] = GROUND;
-        _map[1][HEIGHT - 3] = GROUND;
+	_map[1][HEIGHT - 2] = GROUND;
+	_map[2][HEIGHT - 2] = GROUND;
+	_map[1][HEIGHT - 3] = GROUND;
 
-        _map[WIDTH - 3][1] = GROUND;
-        _map[WIDTH - 2][1] = GROUND;
-        _map[WIDTH - 2][2] = GROUND;
+	_map[WIDTH - 3][1] = GROUND;
+	_map[WIDTH - 2][1] = GROUND;
+	_map[WIDTH - 2][2] = GROUND;
 
-        _map[WIDTH - 3][HEIGHT - 2] = GROUND;
-        _map[WIDTH - 2][HEIGHT - 3] = GROUND;
-        _map[WIDTH - 2][HEIGHT - 2] = GROUND;
+	_map[WIDTH - 3][HEIGHT - 2] = GROUND;
+	_map[WIDTH - 2][HEIGHT - 3] = GROUND;
+	_map[WIDTH - 2][HEIGHT - 2] = GROUND;
 
-        _map[1][(HEIGHT / 2) + 1] = WALL;
-        _map[1][(HEIGHT / 2) + 2] = WALL;
-        _map[WIDTH - 2][(HEIGHT / 2) - 1] = WALL;
-        _map[(WIDTH / 2) + 1][HEIGHT - 2] = WALL;
-        _map[(WIDTH / 2) - 1][1] = WALL;
+	_map[1][(HEIGHT / 2) + 1] = WALL;
+	_map[1][(HEIGHT / 2) + 2] = WALL;
+	_map[WIDTH - 2][(HEIGHT / 2) - 1] = WALL;
+	_map[(WIDTH / 2) + 1][HEIGHT - 2] = WALL;
+	_map[(WIDTH / 2) - 1][1] = WALL;
 }
 
-int     Game::myRandom(int b)
+int	Game::myRandom(int b)
 {
-        return (rand() % b);
+	return (rand() % b);
 }
 
-void    Game::getWay()
+void	Game::getWay()
 {
 	irr::s32	x = 0;
 	irr::s32	y = 0;
-	irr::s32        k = 0;
+	irr::s32	k = 0;
 
-        srand(time(NULL));
+	srand(time(NULL));
 	while (++y < HEIGHT - 1) {
-                if (y == 1 || y == HEIGHT / 2 || y == HEIGHT - 2) {
-                        while (++x != WIDTH - 2) {
-                                k = myRandom(100);
-                                if (k < 30)
-                                        _map[x][y] = GROUND;
-		                else {
-                                        _map[x][y] = BRK;
-                                }
-                        }
-                        x = 1;
-		}
-                else {
-                      	k = myRandom(100);
-                        if (k < 30)
-                                _map[1][y] = GROUND;
-                        else {
-                                _map[1][y] = BRK;
+		if (y == 1 || y == HEIGHT / 2 || y == HEIGHT - 2) {
+			while (++x != WIDTH - 2) {
+				k = myRandom(100);
+				if (k < 30)
+					_map[x][y] = GROUND;
+				else {
+					_map[x][y] = BRK;
+				}
 			}
-                        x++;
-                        while (++x != WIDTH - 2) {
-                                k = myRandom(100);
-                                if (k > 70)
-                                _map[x][y] = WALL;
-				else if (k < 30) {
-                                        _map[x][y] = GROUND;
-	                        }
-                                else {
-                                        _map[x][y] = BRK;
-                                }
-                        }
-
+			x = 1;
 		}
-                x = 0;
-                k = myRandom(100);
-                if (k < 30)
-                        _map[WIDTH - 2][y] = GROUND;
-                else {
-                        _map[WIDTH - 2][y] = BRK;
-                }
-	}
-        x = WIDTH / 2;
-        y = 0;
-        while (++y != HEIGHT - 1) {
+		else {
+			k = myRandom(100);
+			if (k < 30)
+				_map[1][y] = GROUND;
+			else {
+				_map[1][y] = BRK;
+			}
+			x++;
+			while (++x != WIDTH - 2) {
+				k = myRandom(100);
+				if (k > 70)
+					_map[x][y] = WALL;
+				else if (k < 30) {
+					_map[x][y] = GROUND;
+				}
+				else {
+					_map[x][y] = BRK;
+				}
+			}
+		}
+		x = 0;
 		k = myRandom(100);
-                if (k < 30)
-                        _map[x][y] = GROUND;
-                else {
-                        _map[x][y] = BRK;
-                }
-        }
+		if (k < 30)
+			_map[WIDTH - 2][y] = GROUND;
+		else {
+			_map[WIDTH - 2][y] = BRK;
+		}
+	}
+	x = WIDTH / 2;
+	y = 0;
+	while (++y != HEIGHT - 1) {
+		k = myRandom(100);
+		if (k < 30)
+			_map[x][y] = GROUND;
+		else {
+			_map[x][y] = BRK;
+		}
+	}
 }
 
 void Game::makeMap()
@@ -188,7 +187,6 @@ void	Game::moveUpPlayer(Character *character)
 	}
 	else
 		character->setPosition(character->getX(), character->getY(), -540);
-	
 }
 
 void	Game::moveLeftPlayer(Character *character)
@@ -277,7 +275,6 @@ void	Game::updateMap(irr::s32 x, irr::s32 y)
 		node_pos = tmp_node->getPosition();
 		node_pos.Z = INIT_Z - 30;
 		tmp_node->setPosition(node_pos);
-		
 		_map[x + 1][y] = GROUND;
 	}
 	else if (_map[x + 1][y] == EXPLO && _map[x + 2][y] == EXPLO) {
@@ -306,7 +303,6 @@ void	Game::updateMap(irr::s32 x, irr::s32 y)
 		node_pos.Z = INIT_Z - 30;
 		tmp_node->setPosition(node_pos);
 		_map[x - 1][y] = GROUND;
-		
 	}
 	else if (_map[x - 1][y] == EXPLO && _map[x - 2][y] == EXPLO) {
 		tmp = std::make_pair(x - 1, y);
@@ -509,8 +505,6 @@ void	Game::updateMapExp(irr::s32 x, irr::s32 y)
 	node_pos.Z = INIT_Z - 30;
 	tmp_node->setPosition(node_pos);
 	_map[x][y] = EXPLO;
-	
-	
 }
 
 void	Game::getBombEvents()
@@ -550,7 +544,6 @@ void	Game::getBombEvents()
 			_sisStarted = false;
 			_sfireStarted = true;
 		}
- 
 	}
 	if (_fIaBombSted) {
 		_fIaBombEnd = std::chrono::system_clock::now();
@@ -600,7 +593,6 @@ void	Game::getBombEvents()
 			_tIaExploSted = true;
 		}
 	}
-	
 }
 
 void	Game::getPlayerEvents()
@@ -635,7 +627,6 @@ void	Game::getPlayerEvents()
 			_thirdIa = nullptr;
 		}
 	}
-	
 }
 
 void	Game::getExploEvents()
@@ -659,7 +650,6 @@ void	Game::getExploEvents()
 			elapsed_seconds = 0;
 			_sfireStarted = false;
 		}
- 
 	}
 	if (_fIaExploSted) {
 		_fiaFireEnd = std::chrono::system_clock::now();
@@ -741,7 +731,7 @@ void    Game::findWayFia()
 		moveIaDodgeBomb(_firstIa);
 }
 
-void    Game::findWaySia()
+void	Game::findWaySia()
 {
 	if (!_sIaBombSted && !_sIaExploSted) {
 		if ((_map[_secondIa->getX() + 1][_secondIa->getY()] == BRK) ||
@@ -756,7 +746,7 @@ void    Game::findWaySia()
 		moveIaDodgeBomb(_secondIa);
 }
 
-void    Game::findWayTia()
+void	Game::findWayTia()
 {
 	if (!_tIaBombSted && !_tIaExploSted) {
 		if ((_map[_thirdIa->getX() + 1][_thirdIa->getY()] == BRK) ||
@@ -771,7 +761,7 @@ void    Game::findWayTia()
 		moveIaDodgeBomb(_thirdIa);
 }
 
-void    Game::tIaDropBomb()
+void	Game::tIaDropBomb()
 {
 	if (!_tIaBombSted) {
 		_fpBomb = _text->getBomb();
@@ -789,7 +779,7 @@ void    Game::tIaDropBomb()
 	}
 }
 
-void    Game::fIaDropBomb()
+void	Game::fIaDropBomb()
 {
 	if (!_fIaBombSted) {
 		_fpBomb = _text->getBomb();
@@ -807,7 +797,7 @@ void    Game::fIaDropBomb()
 	}
 }
 
-void    Game::sIaDropBomb()
+void	Game::sIaDropBomb()
 {
 	if (!_sIaBombSted) {
 		_fpBomb = _text->getBomb();
@@ -828,7 +818,7 @@ void    Game::sIaDropBomb()
 	}
 }
 
-void    Game::getIaEvents()
+void	Game::getIaEvents()
 {
 	if (_firstIa != nullptr) {
 		findWayFia();
@@ -840,7 +830,7 @@ void    Game::getIaEvents()
 	}
 }
 
-void    Game::moveIa(Ia *ia)
+void	Game::moveIa(Ia *ia)
 {
 	irr::s32        my_rand = 0;
 	irr::s32        can_go = 0;
@@ -894,10 +884,10 @@ void    Game::moveIa(Ia *ia)
 	return;
 }
 
-void    Game::moveIaDodgeBomb(Ia *ia)
+void	Game::moveIaDodgeBomb(Ia *ia)
 {
-	int     can_move_y = 0;
-	int     can_move_x = 0;
+	int	can_move_y = 0;
+	int	can_move_x = 0;
 
 	if (ia->getX() == ia->getSaveX() && ia->getY() == ia->getSaveY()) {
 		moveIaFromBomb(ia);
@@ -953,12 +943,11 @@ void    Game::moveIaDodgeBomb(Ia *ia)
 		return;
 	}
 	return;
-
 }
 
-void    Game::moveIaFromBomb(Ia *ia)
+void	Game::moveIaFromBomb(Ia *ia)
 {
-	int     i;
+	int i;
 
 	if ((_map[ia->getX() + 1][ia->getY()] == GROUND)) {
 		ia->setPosition(ia->getX() + 1, ia->getY(), -540);
@@ -980,7 +969,7 @@ void    Game::moveIaFromBomb(Ia *ia)
 		return;
 }
 
-int     Game::moveIaY(Ia *ia)
+int	Game::moveIaY(Ia *ia)
 {
 	if (_map[ia->getX()][ia->getY() - 1] == GROUND) {
 		ia->setPosition(ia->getX(), ia->getY() - 1, -540);
@@ -993,7 +982,7 @@ int     Game::moveIaY(Ia *ia)
 	return 1;
 }
 
-int     Game::moveIaX(Ia *ia)
+int	Game::moveIaX(Ia *ia)
 {
 	if (_map[ia->getX() - 1][ia->getY()] == GROUND) {
 		ia->setPosition(ia->getX() - 1, ia->getY(), -540);
@@ -1006,7 +995,7 @@ int     Game::moveIaX(Ia *ia)
 	return 1;
 }
 
-int     Game::moveIaUpX(Ia *ia)
+int	Game::moveIaUpX(Ia *ia)
 {
 	if (_map[ia->getX() + 1][ia->getY()] == GROUND) {
 		ia->setPosition(ia->getX() + 1, ia->getY(), -540);
@@ -1015,7 +1004,7 @@ int     Game::moveIaUpX(Ia *ia)
 	return 1;
 }
 
-int     Game::moveIaDownX(Ia *ia)
+int	Game::moveIaDownX(Ia *ia)
 {
 	if (_map[ia->getX() - 1][ia->getY()] == GROUND) {
 		ia->setPosition(ia->getX() - 1, ia->getY(), -540);
@@ -1024,7 +1013,7 @@ int     Game::moveIaDownX(Ia *ia)
 	return 1;
 }
 
-int     Game::moveIaDownY(Ia *ia)
+int	Game::moveIaDownY(Ia *ia)
 {
 	if (_map[ia->getX()][ia->getY() - 1] == GROUND) {
 		ia->setPosition(ia->getX(), ia->getY() - 1, -540);
@@ -1033,7 +1022,7 @@ int     Game::moveIaDownY(Ia *ia)
 	return 1;
 }
 
-int     Game::moveIaUpY(Ia *ia)
+int	Game::moveIaUpY(Ia *ia)
 {
 	if (_map[ia->getX()][ia->getY() + 1] == GROUND) {
 		ia->setPosition(ia->getX(), ia->getY() + 1, -540);
@@ -1119,7 +1108,7 @@ void	Game::deleteMapNodes()
 	std::pair<int, int>	tmp_pos;
 	irr::s32 i = 0;
 	irr::s32 j = 0;
-	
+
 	for (irr::s32 i = 0; i < _map.size(); i++)
 	{
 		for (irr::s32 j = 0; j < _map[i].size(); j++)
@@ -1175,4 +1164,3 @@ void	Game::createCharacters()
 		_second = nullptr;
 	}
 }
-;
