@@ -1,11 +1,8 @@
 //
-// bomberman.hpp for  in /home/hazer/cpp_indie_studio/include
-//
-// 
-// made by <julien.ferrier@epitech.eu>
-//
-//
-//
+// EPITECH PROJECT, 2018
+// OOP_indie_studio_2018
+// File description:
+// Bomberman.hpp
 //
 
 #ifndef BOMBERMAN_HPP
