@@ -1,8 +1,8 @@
 //
 // EPITECH PROJECT, 2018
-// 
+// OOP_indie_studio_2018
 // File description:
-// 
+// La.hpp
 //
 
 #ifndef IA_HPP_
