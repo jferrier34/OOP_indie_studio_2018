@@ -16,7 +16,6 @@ Core::Core() : _data(), _menu(nullptr), _inMenu(false), _inGame(false), _quit(fa
 Core::~Core()
 {
 	_data.device->drop();
-	_data.soundEng->drop();
 }
 
 int Core::initGlobals()
@@ -28,8 +27,6 @@ int Core::initGlobals()
 	_data.device->setResizable(false);
 	_data.driver = _data.device->getVideoDriver();
 	_data.sceneMngr = _data.device->getSceneManager();
-	_data.soundEng = irrklang::createIrrKlangDevice();
-	_data.soundEng->play2D("medias/ShookOnes.ogg", true, false);
 	_data.guiEnv = _data.device->getGUIEnvironment();
 	_data.winType = FSCREEN;
 	_data.inMenu = false;

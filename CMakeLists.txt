@@ -16,7 +16,6 @@ set (IRRLICHT_LIBRARY
   -lXext
   -lX11
   -lXxf86vm
-  -lIrrKlang
   )
 
 file (GLOB SRCS src/*.cpp)
@@ -37,6 +36,5 @@ install (FILES ./lib/libGL.so DESTINATION lib64/)
 install (FILES ./lib/libXext.so DESTINATION lib64/)
 install (FILES ./lib/libX11.so DESTINATION lib64/)
 install (FILES ./lib/libXxf86vm.so DESTINATION lib64/)
-install (FILES ./lib/libIrrKlang.so DESTINATION lib64/)
 install (FILES ./lib/ikpFlac.so DESTINATION lib64/)
 install (FILES ./lib/ikpMP3.so DESTINATION lib64/)

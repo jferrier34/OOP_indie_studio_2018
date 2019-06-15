@@ -13,7 +13,6 @@
 #include <utility>
 #include <chrono>
 #include <ctime>
-#include <irrKlang.h>
 #include <iostream>
 
 enum Window_Type {
@@ -42,7 +41,6 @@ typedef struct	s_global_data {
 	irr::IrrlichtDevice		*device;
 	irr::video::IVideoDriver	*driver;
 	irr::scene::ISceneManager	*sceneMngr;
-	irrklang::ISoundEngine		*soundEng;
 	irr::gui::IGUIEnvironment	*guiEnv;
         Window_Type			winType;
         bool				inMenu;

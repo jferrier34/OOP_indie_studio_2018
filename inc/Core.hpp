@@ -9,7 +9,6 @@
 #define CORE_HPP_
 
 #include <irrlicht.h>
-#include <irrKlang.h>
 #include "Globals.hpp"
 #include "Menu.hpp"
 #include "MenuEventReceiver.hpp"

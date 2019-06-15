@@ -41,14 +41,6 @@ irr::s32	Menu::drawSettings()
 				       0, ID_BUTTON_LINE);
 	exitButton->setImage(exitTexture);
 	saveButton->setImage(saveTexture);
-	if (_data.sound == false) {
-		mute->setImage(line);
-		_data.soundEng->setSoundVolume(0);
-	}
-	else {
-		mute->setImage(sound);
-		_data.soundEng->setSoundVolume(0.75);
-	}
 	if (_data.nbPlayers == 1)
 		playerButton->setImage(nbPlayers);
 	else if (_data.nbPlayers == 2)
