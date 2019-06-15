@@ -638,13 +638,13 @@ void	Game::getExploEvents()
 		if (elapsed_seconds == 1) {
 			updateMap(_stkX, _stkY);
 			elapsed_seconds = 0;
-			_fireStarted = false;		
+			_fireStarted = false;
 		}
 	}
 	if (_sfireStarted) {
 		_sfireTEnd = std::chrono::system_clock::now();
 		irr::s32	elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>
-			(_sfireTEnd - _sfireTStart).count();		
+			(_sfireTEnd - _sfireTStart).count();
 		if (elapsed_seconds == 1) {
 			updateMap(_saveX, _saveY);
 			elapsed_seconds = 0;
